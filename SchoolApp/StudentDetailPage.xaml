@@ -1,19 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SchoolApp.StudentDetailPage"
-             Title="Student Detail">
+             x:Class="SchoolApp.StudentsPage"
+             Title="Students">
 
-    <VerticalStackLayout Padding="20" Spacing="15">
+    <VerticalStackLayout Padding="20">
 
-        <Label Text="Student Information"
-               FontSize="24"
-               HorizontalOptions="Center"/>
+        <Label Text="Students"
+               FontSize="24"/>
 
-        <Label x:Name="NameLabel"
-               FontSize="22"/>
+        <CollectionView x:Name="StudentsCollection"
+                        SelectionMode="Single"
+                        SelectionChanged="StudentsCollection_SelectionChanged">
 
-        <Label x:Name="InfoLabel"
-               FontSize="18"/>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+
+                    <Label Text="{Binding .}"
+                           FontSize="18"
+                           Padding="10"/>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
 
     </VerticalStackLayout>
 

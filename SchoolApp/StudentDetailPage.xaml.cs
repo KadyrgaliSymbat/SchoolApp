@@ -1,35 +1,27 @@
-using System.Collections.Generic;
-using System.Linq;
+using System;
+using System.Xml;
 
 namespace SchoolApp;
 
-public partial class StudentsPage : ContentPage
+[QueryProperty(nameof(StudentName), "name")]
+public partial class StudentDetailPage : ContentPage
 {
-    List<string> students = new()
-    {
-        "Aruzhan",
-        "Daniyar",
-        "Symbat",
-        "Aigerim",
-        "John"
-    };
-
-    public StudentsPage()
+    public StudentDetailPage()
     {
         InitializeComponent();
-
-        StudentsCollection.ItemsSource = students;
     }
 
-    private async void StudentsCollection_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    public string StudentName
     {
-        var selectedStudent = e.CurrentSelection.FirstOrDefault()?.ToString();
+        set
+        {
+            NameLabel.Text = value;
+            DetailsLabel.Text = $"Name length: {value.Length}";
+        }
+    }
 
-        if (selectedStudent == null)
-            return;
-
-        await Shell.Current.GoToAsync($"{nameof(StudentDetailPage)}?name={selectedStudent}");
-
-        StudentsCollection.SelectedItem = null;
+    private async void OnBackClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("..");
     }
 }
