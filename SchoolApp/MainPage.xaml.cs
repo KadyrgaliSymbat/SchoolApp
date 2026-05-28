@@ -2,17 +2,21 @@
 
 public partial class MainPage : ContentPage
 {
-    int count = 0;
+    private int _count = 0;
 
     public MainPage()
     {
         InitializeComponent();
     }
 
-    private void OnCheckClicked(object sender, EventArgs e)
+    private void OnTapClicked(object sender, EventArgs e)
     {
-        count++;
+        _count++;
+        StatusLabel.Text = $"Button tapped {_count} time(s).";
+    }
 
-        StatusLabel.Text = $"Button clicked {count} times";
+    private async void OpenStudents_Clicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(StudentsPage));
     }
 }

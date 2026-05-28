@@ -1,31 +1,31 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SchoolApp.MainPage">
+             x:Class="SchoolApp.MainPage"
+             Title="Home">
 
-    <VerticalStackLayout Spacing="20"
-                         Padding="30"
-                         VerticalOptions="Center">
+    <VerticalStackLayout Padding="20" Spacing="15" VerticalOptions="Center">
 
         <Label Text="School App"
                FontSize="32"
-               HorizontalOptions="Center"
-               FontAttributes="Bold"/>
+               HorizontalOptions="Center" />
 
         <Label Text="Powered by .NET 10 MAUI"
-               FontSize="18"
-               HorizontalOptions="Center"
-               Opacity="0.7"/>
+               FontSize="16"
+               HorizontalOptions="Center" />
 
         <Label x:Name="StatusLabel"
-               Text="Button not clicked yet"
-               FontSize="18"
-               HorizontalOptions="Center"/>
+               Text="Tap the button to confirm everything works."
+               FontSize="14"
+               HorizontalOptions="Center" />
 
         <Button Text="Check"
-                Clicked="OnCheckClicked"
-                HorizontalOptions="Center"/>
+                Clicked="OnTapClicked"
+                HorizontalOptions="Center" />
+
+        <Button Text="Open students list"
+                Clicked="OpenStudents_Clicked"
+                HorizontalOptions="Center" />
 
     </VerticalStackLayout>
 
-</ContentPage> n  
+</ContentPage>
